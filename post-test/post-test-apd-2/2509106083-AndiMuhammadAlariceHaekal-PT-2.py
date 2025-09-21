@@ -26,4 +26,3 @@ print(f"| Pecel Lele  | 5%  |     Rp{totalPlele}      |")
 print(f"|  Mie  Ayam  | 8%  |     Rp{totalMayam}      |")
 print(f"| Nasi Padang | 10% |     Rp{totalNpadang}      |")
 print(f"|========================================|")
-# untuk  baris 28 - 30 maaf agak berantakan bang/mba codenya biar saat di output rapi
