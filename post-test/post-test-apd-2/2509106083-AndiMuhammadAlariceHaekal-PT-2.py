@@ -1,9 +1,8 @@
 print("========= Selamat Datang =========")
 nama = str(input("Masukkan Nama\t\t :"))
 nim = int(input("Masukkan NIM\t\t :"))
-dana = float(input("Masukkan Uang Belanja\t :"))
+harga = float(input("Masukkan Uang Belanja\t :"))
 
-harga = int(15000)
 pajakmenu = [0.05, 0.08, 0.10]
 pajakPlele = float(harga * pajakmenu[0])
 pajakMayam = float(harga * pajakmenu[1])
@@ -14,7 +13,7 @@ totalMayam = float(harga + pajakMayam)
 totalNpadang = float(harga + pajakNpadang)
 
 
-print(f"\n{nama} dengan NIM {nim}, ingin berbelanja dengan dana Rp{dana}.")
+print(f"\n{nama} dengan NIM {nim}, ingin berbelanja dengan uang Rp{harga}.")
 print("""\n.-,--.         .           ,.   .-,--. ,-_/ ,---. 
  `|__/ ,-. ,-. |- ,-.     / |    `|__/ '  | |  -' 
   | \  |-' `-. |  | |    /~~|-.   | \  .- | |  -. 
