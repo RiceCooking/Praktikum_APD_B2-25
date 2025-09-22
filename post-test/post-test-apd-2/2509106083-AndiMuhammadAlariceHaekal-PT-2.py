@@ -11,7 +11,6 @@ totalPlele = float(harga + pajakPlele)
 totalMayam = float(harga + pajakMayam)
 totalNpadang = float(harga + pajakNpadang)
 
-
 print(f"\n{nama} dengan NIM {nim}, ingin berbelanja dengan uang Rp{harga}.")
 print("""\n.-,--.         .           ,.   .-,--. ,-_/ ,---. 
  `|__/ ,-. ,-. |- ,-.     / |    `|__/ '  | |  -' 
