@@ -8,7 +8,6 @@ print(sum(a))
 print("\n Masukkan angka")
 x = int(input())
 a = ""
-x = x.replace(x, "a")
 if(x < 0 or x > 5):
     if(x == 6):
             a = a.replace("Error", "")
