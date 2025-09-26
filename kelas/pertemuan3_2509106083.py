@@ -1,8 +1,6 @@
 # angka = 2
 # if angka > 5:
 #     print("Angka lebih besar dari 5")
-
-def 
 a = [5, 6]
 print(sum(a))
 print("\n Masukkan angka")
