@@ -11,7 +11,7 @@ a = ""
 if(x < 0 or x > 5):
     a += "Error"
     print(a)
-if(x > 0 and x < 5):
+if(x >= 0 and x <= 5):
    a += "Berhasil"
    print(a)
 if(x == 6):
