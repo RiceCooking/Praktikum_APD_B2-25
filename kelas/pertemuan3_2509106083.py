@@ -7,7 +7,7 @@ a = [5, 6]
 print(sum(a))
 print("\n Masukkan angka")
 x = int(input())
-if(x < 0 and x > 5):
+if(x < 0 or x > 5):
     print("Error")
 if(x > 0 and x < 5):
     print("Berhasil")
