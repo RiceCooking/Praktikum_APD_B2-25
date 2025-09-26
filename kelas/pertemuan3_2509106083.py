@@ -7,11 +7,15 @@ a = [5, 6]
 print(sum(a))
 print("\n Masukkan angka")
 x = int(input())
+a = ""
 if(x < 0 or x > 5):
-    print("Error")
+    a += "Error"
+    print(a)
 if(x > 0 and x < 5):
-    print("Berhasil")
+   a += "Berhasil"
+   print(a)
 if(x == 6):
-    print("Enam")
+    a += "Enam"
+    print(a)
 
 
