@@ -15,6 +15,7 @@ if(x >= 0 and x <= 5):
    a += "Berhasil"
    print(a)
 if(x == 6):
+    a = a.replace("Error", "")
     a += "Enam"
     print(a)
 
