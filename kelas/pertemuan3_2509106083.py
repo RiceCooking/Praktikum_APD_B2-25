@@ -9,13 +9,16 @@ print("\n Masukkan angka")
 x = int(input())
 a = ""
 if(x < 0 or x > 5):
-    a += "Error"
-    print(a)
+    if(x == 6):
+            a = a.replace("Error", "")
+            print(a)
+    else:
+        a += "Error"
+        print(a)
 if(x >= 0 and x <= 5):
    a += "Berhasil"
    print(a)
 if(x == 6):
-    a = a.replace("Error", "")
     a += "Enam"
     print(a)
 
