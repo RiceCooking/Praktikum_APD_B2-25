@@ -2,7 +2,7 @@
 # if angka > 5:
 #     print("Angka lebih besar dari 5")
 
-
+def 
 a = [5, 6]
 print(sum(a))
 print("\n Masukkan angka")
@@ -22,4 +22,18 @@ if(x == 6):
     a += "Enam"
     print(a)
 
-
+# Bentuk awal
+nilai = 70
+if nilai >= 60:
+    status = "Lulus"
+else:
+    status = "Tidak Lulus"
+print(status)
+# output
+# Lulus
+# Menggunakan Ternary Operator
+nilai = 70
+status = "Lulus" if nilai >= 60 else "Tidak Lulus"
+print(status)
+# output
+# Lulus
