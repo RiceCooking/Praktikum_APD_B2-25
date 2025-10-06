@@ -65,26 +65,49 @@ opsi 4 -> Keluar dari program
           """)
     opsi = int(input("Pilih opsi\t:"))
     if opsi == 1:
-        unit = int(input("Jumlah unit sofa\t:"))
+        print("Sofa")
+        unit = int(input("Jumlah unit\t:"))
         for i in range(unit):
             harga += 500000
         total += harga
         print(f"Total unit sofa {unit} dengan harga Rp{harga}")
     elif opsi == 2:
-        unit = int(input("Jumlah unit meja belajar\t:"))
+        print("Meja Belajar")
+        unit = int(input("Jumlah unit\t:"))
         for i in range(unit):
             harga += 250000
         total += harga
         print(f"Total unit meja belajar {unit} dengan harga Rp{harga}")
     elif opsi == 3:
-        unit = int(input("Jumlah unit rak lemari\t:"))
+        print("Rak Lemari")
+        unit = int(input("Jumlah unit\t:"))
         for i in range(unit):
             harga += 150000
         total += harga
         print(f"Total unit rak lemari {unit} dengan harga Rp{harga}")
     elif opsi == 4:
-        print("===STRUK PEMBELIAN===")
-        print(f"Total harga Rp{total}")
+        print("===== STRUK PEMBELIAN TOKO INFORDEH =====")
+        print(f"Total harga awal\t\t: Rp{total}")
+        if total == 0:
+            break
+        elif total >= 700000:
+            total = total - (total*0.2)
+            print("Bonus\t\t\t\t: Diskon 20%")
+        elif total >= 500000 and total < 700000:
+            total = total - (total*0.08)
+            print("Bonus\t\t\t\t: Diskon 8%")
+        elif total >= 150000 and total < 500000:
+            total = total
+            print("Bonus\t\t\t\t: Kitchen set")
+        else:
+            total = total
+            print("Bonus\t\t\t\t: Tidak ada")
+        print(f"Total bayar setelah bonus\t: Rp{total}")
         break
+
     else:
         print("Pilihlah opsi 1/2/3/4")
+
+# Jika total bayar >= Rp.700.000, maka ia mendapat potongan 20% dari total bayar akhir.
+# Jika total bayar >= Rp.500.000 dan total bayar < Rp.700.000, maka ia mendapat potongan 8% dari total bayar akhir.
+# Jika total bayar >= Rp.150.000 dan < Rp.500.000, maka ia mendapat Kitchen Set.
