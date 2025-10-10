@@ -1,3 +1,3 @@
 buah = []
-buah.append("aaaa")
+buah.append("")
 print(buah)
