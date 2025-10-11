@@ -13,6 +13,7 @@ while True:
 """)
     opsi = input("Pilih Opsi\t:")
     if opsi == "1":
+        print("Halaman Registrasi")
         usn = input("Username\t:")
         pw = input("Password\t:")
         for usn1 in data:
@@ -23,11 +24,12 @@ while True:
             data.append([usn, pw, "User", []])
             print("Registrasi berhasil")
     elif opsi == "2":
+        print("Halaman Login")
         usn = input("Username\t:")
         pw = input("Password\t:")
     elif opsi == "3":
         print("""
 Terimakasih telah menggunakan Playlist Musik
-              Anda keluar dari Aplikasi
+Anda keluar dari Aplikasigit
               """)
         break
