@@ -99,7 +99,7 @@ Anda keluar dari Aplikasigit
 1. Lihat Playlist
 2. Tambah Playlist
 3. Ubah Playlist
-4. Halaman Login
+4. Halaman Masuk
 5. Keluar dari Aplikasi      
 """)
                 opsi = input("Opsi\t:")
