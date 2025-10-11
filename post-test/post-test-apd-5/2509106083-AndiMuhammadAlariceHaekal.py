@@ -11,7 +11,7 @@ while True:
 === Halaman Masuk Playlist Musik ==
 1. Registrasi
 2. Login
-3. Keluar
+3. Keluar dari Aplikasi
 """)
     opsi = input("Pilih Opsi\t:")
     if opsi == "1":
@@ -48,6 +48,7 @@ while True:
             print("Username tidak ditemukan",end="")
             input()
             continue
+    
  #alur logika kan awalnya user ga ada nilainya terus di cek satu satu di data, setiap usn1 ada pada elemen data. terus kalau ketemu, usernamenya itu jadi nilainya user
  #karene ketemu bearti kan list data pengguna tuh kan adalah elemen di data dlm bentuk list jadi pas bener tuh otomatis satu elemen yg benar itu yang dibaca sama program 
  #nah karena user = elemen yg usernamenya bener, cek lagi pwnya di index ke 1 kalau sama bearti syrat loginnya terpenuhi tpi perlu di simpan lgi data si userny
@@ -59,3 +60,60 @@ Anda keluar dari Aplikasigit
               """, end = "")
         input()
         break
+    else:
+         print("Pilihlah 1/2/3", end="")
+         input()
+         continue
+    while statuslogin != None:
+        os.system("cls || clear")
+        if user[2] == "Admin":
+                print("""
+=== Aplikasi Playlist Musik Admin ==
+1. Lihat Playlist
+2. Tambah Playlist
+3. Ubah Playlist
+4. Halaman Login
+5. Keluar dari Aplikasi
+6. Kelola Data         
+""")
+                opsi = input("Opsi\t:")
+                if opsi == "1":
+                     user
+                elif opsi == "2":
+                     user
+                elif opsi == "3":
+                     user
+                elif opsi == "4":
+                     user
+                elif opsi == "5":
+                     user
+                elif opsi == "6":
+                     user
+                else:
+                     print("Pilihlah 1/2/3/4/5/6", end="")
+                     input()
+                     continue
+        elif user[2] == "User":
+                print("""
+=== Aplikasi Playlist Musik ==
+1. Lihat Playlist
+2. Tambah Playlist
+3. Ubah Playlist
+4. Halaman Login
+5. Keluar dari Aplikasi      
+""")
+                opsi = input("Opsi\t:")
+                if opsi == "1":
+                     user
+                elif opsi == "2":
+                     user
+                elif opsi == "3":
+                     user
+                elif opsi == "4":
+                     user
+                elif opsi == "5":
+                     user
+                else:
+                     print("Pilihlah 1/2/3/4/5", end="")
+                     input()
+                     continue
