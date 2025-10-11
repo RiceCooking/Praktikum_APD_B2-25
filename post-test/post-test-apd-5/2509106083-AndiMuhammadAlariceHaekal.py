@@ -3,6 +3,8 @@ data = [
     ["developer", "123", "Admin", []]
         ]
 
+statuslogin = None
+
 while True:
     os.system("cls || clear")
     print("""
@@ -29,6 +31,27 @@ while True:
         print("Halaman Login")
         usn = input("Username\t:")
         pw = input("Password\t:")
+        user = None
+        for usn1 in data:
+            if usn1[0] == usn:
+                user = usn1
+                break
+        if user != None:
+            if user[1] == pw:
+                print("Login berhasil", end="")
+                statuslogin = user
+                input()
+            else:
+                print("Password salah", end="")
+                input()
+        else:
+            print("Username tidak ditemukan",end="")
+            input()
+            continue
+ #alur logika kan awalnya user ga ada nilainya terus di cek satu satu di data, setiap usn1 ada pada elemen data. terus kalau ketemu, usernamenya itu jadi nilainya user
+ #karene ketemu bearti kan list data pengguna tuh kan adalah elemen di data dlm bentuk list jadi pas bener tuh otomatis satu elemen yg benar itu yang dibaca sama program 
+ #nah karena user = elemen yg usernamenya bener, cek lagi pwnya di index ke 1 kalau sama bearti syrat loginnya terpenuhi tpi perlu di simpan lgi data si userny
+ #caranya statuslogin yg awalny g ad nilai jadi dimasukkan nilai si user tadi, dimana nilai user itu ada elemen dari data jadi 
     elif opsi == "3":
         print("""
 Terimakasih telah menggunakan Playlist Musik
