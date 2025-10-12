@@ -80,7 +80,49 @@ Anda keluar dari Aplikasigit
                 if opsi == "1":
                      user
                 elif opsi == "2":
-                     user
+                     print("== Tambah Playlist ==")
+                     judul = input()
+                     playlist = [judul, []]
+                     while True:
+                          judulmusik = input("Judul Musik\t:")
+                          genre = input("Genre\t\t:")
+                          artis = input("Artis\t\t:")
+                          while True:
+
+                            os.system("cls || clear")
+                            tahun = str(input("Tahun Rilis\t:"))
+                            if tahun.isdigit():
+                                 tahun = int(tahun)
+                                 if tahun >= 1950 and tahun <= 2025:
+                                    break
+                                 else:
+                                      print("Tahun hanya dari 1950 - 2025", end="")
+                                      input()
+                            else:
+                                 print("Tahun harus berupa angka", end="")
+                                 input()
+                          while True:
+                            os.system("cls || clear")
+                            rating = str(input("Rating Musik\t:"))
+                            if rating.isdigit():
+                                 rating = int(rating)
+                                 if rating >= 1 and rating <= 5:
+                                    break
+                                 else:
+                                      print("Rating dari 1 - 5", end="")
+                                      input()
+                            else:
+                                 print("Rating harus berupa angka", end="")
+                                 input()
+                            musik = (judulmusik, artis, genre, str(tahun), str(rating))
+                            playlist[1].append(musik)
+                            print("""Playlist berhasil di tambahkan """)
+                            input()
+                            print(playlist)
+                            input()
+                            statuslogin = None
+                            break
+
                 elif opsi == "3":
                      user
                 elif opsi == "4":
