@@ -48,7 +48,7 @@ while True:
             print("Username tidak ditemukan",end="")
             input()
             continue
-    
+
  #alur logika kan awalnya user ga ada nilainya terus di cek satu satu di data, setiap usn1 ada pada elemen data. terus kalau ketemu, usernamenya itu jadi nilainya user
  #karene ketemu bearti kan list data pengguna tuh kan adalah elemen di data dlm bentuk list jadi pas bener tuh otomatis satu elemen yg benar itu yang dibaca sama program 
  #nah karena user = elemen yg usernamenya bener, cek lagi pwnya di index ke 1 kalau sama bearti syrat loginnya terpenuhi tpi perlu di simpan lgi data si userny
@@ -73,27 +73,58 @@ Anda keluar dari Aplikasigit
 2. Tambah Playlist
 3. Ubah Playlist
 4. Halaman Login
-5. Keluar dari Aplikasi
-6. Kelola Data         
+5. Kelola Data         
 """)
                 opsi = input("Opsi\t:")
                 if opsi == "1":
-                     user
+                     print("== Lihat Playlist ==", end="")
+                     input()
+                     if len(user[3]) == 0:
+                         print("Belum ada playlist", end="")
+                         input()
+                     else:
+                         print("= Daftar Playlist =")
+                         for plylist in user[3]:
+                             print(f"{plylist[0]}")
+                             for lagu in plylist[1]:
+                                 print(f"{lagu[0]} {lagu[1]} {lagu[2]} {lagu[3]} {lagu[4]}", end ="")
+                                 input()
                 elif opsi == "2":
                      print("== Tambah Playlist ==")
-                     judul = input()
+                     judul = "Playlist : "
+                     judul1 = input("Judul Playlist\t:")
+                     judul += judul1
                      playlist = [judul, []]
                      while True:
-                          judulmusik = input("Judul Musik\t:")
-                          genre = input("Genre\t\t:")
-                          artis = input("Artis\t\t:")
+                          judulmusik = "Judul Musik : "
+                          judulmusik1 = input("Judul Musik\t:")
+                          judulmusik += judulmusik1
                           while True:
-
-                            os.system("cls || clear")
-                            tahun = str(input("Tahun Rilis\t:"))
-                            if tahun.isdigit():
-                                 tahun = int(tahun)
-                                 if tahun >= 1950 and tahun <= 2025:
+                            genre = "Genre : "
+                            genre1 = str(input("1. Klasik\n2. Pop\n3. Rock\n4. Jazz\n5. HipHop\nGenre\t\t:"))
+                            genre1 = genre1.lower()
+                            jenis = ["klasik", "pop", "rock", "jazz", "hiphop"]
+                            if genre1.isalpha():
+                                if genre1 in jenis:
+                                    genre += genre1
+                                    break
+                                else:
+                                    print("Pilihlah berdasrkan opsi", end="")
+                                    input()
+                            else:
+                                print("Hanya dalam bentuk huruf", end="")
+                                input()
+                          artis = "Artis : "
+                          artis1 = input("Artis\t\t:")
+                          artis += artis1
+                          while True:
+                            tahun = str("Tahun Rilis : ")
+                            tahun1 = str(input("Tahun Rilis\t:"))
+                            if tahun1.isdigit():
+                                 tahun1 = int(tahun1)
+                                 if tahun1 >= 1950 and tahun1 <= 2025:
+                                    tahun1 = str(tahun1)
+                                    tahun += tahun1
                                     break
                                  else:
                                       print("Tahun hanya dari 1950 - 2025", end="")
@@ -102,11 +133,13 @@ Anda keluar dari Aplikasigit
                                  print("Tahun harus berupa angka", end="")
                                  input()
                           while True:
-                            os.system("cls || clear")
-                            rating = str(input("Rating Musik\t:"))
-                            if rating.isdigit():
-                                 rating = int(rating)
-                                 if rating >= 1 and rating <= 5:
+                            rating = "Rating Musik : "
+                            rating1 = str(input("Rating Musik\t:"))
+                            if rating1.isdigit():
+                                 rating1 = int(rating1)
+                                 if rating1 >= 1 and rating1 <= 5:
+                                    rating1 = str(rating1)
+                                    rating += rating1
                                     break
                                  else:
                                       print("Rating dari 1 - 5", end="")
@@ -114,23 +147,29 @@ Anda keluar dari Aplikasigit
                             else:
                                  print("Rating harus berupa angka", end="")
                                  input()
-                            musik = (judulmusik, artis, genre, str(tahun), str(rating))
-                            playlist[1].append(musik)
-                            print("""Playlist berhasil di tambahkan """)
+                          musik = (judulmusik, artis, str(genre), str(tahun), str(rating))
+                          playlist[1].append(musik)
+                          print("""Playlist berhasil di tambahkan """)
+                          print(playlist)
+                          input()
+                          opsi1 = input("""
+Ketik 1 untuk tambahkan musik lagi
+""")
+                          if opsi1 != "1":
+                            print("Beralih ke halama utama", end="")
                             input()
-                            print(playlist)
-                            input()
-                            statuslogin = None
                             break
-
+                     user[3].append(playlist)
                 elif opsi == "3":
                      user
                 elif opsi == "4":
-                     user
+                     print("""
+                           Beralih ke halaman masuk
+                            """, end ="")
+                     input()
+                     statuslogin = None
                 elif opsi == "5":
-                     user
-                elif opsi == "6":
-                     user
+                    user
                 else:
                      print("Pilihlah 1/2/3/4/5/6", end="")
                      input()
@@ -141,21 +180,103 @@ Anda keluar dari Aplikasigit
 1. Lihat Playlist
 2. Tambah Playlist
 3. Ubah Playlist
-4. Halaman Masuk
-5. Keluar dari Aplikasi      
+4. Halaman Masuk   
 """)
                 opsi = input("Opsi\t:")
                 if opsi == "1":
-                     user
+                     print("== Lihat Playlist ==", end="")
+                     input()
+                     if len(user[3]) == 0:
+                         print("Belum ada playlist", end="")
+                         input()
+                     else:
+                         print("= Daftar Playlist =")
+                         for plylist in user[3]:
+                             print(f"{plylist[0]}")
+                             for lagu in plylist[1]:
+                                 print(f"{lagu[0]} {lagu[1]} {lagu[2]} {lagu[3]} {lagu[4]}", end ="")
+                                 input()
                 elif opsi == "2":
+                     print("== Tambah Playlist ==")
+                     judul = "Playlist : "
+                     judul1 = input("Judul Playlist\t:")
+                     judul += judul1
+                     playlist = [judul, []]
+                     while True:
+                          judulmusik = "Judul Musik : "
+                          judulmusik1 = input("Judul Musik\t:")
+                          judulmusik += judulmusik1
+                          while True:
+                            genre = "Genre : "
+                            genre1 = str(input("1. Klasik\n2. Pop\n3. Rock\n4. Jazz\n5. HipHop\nGenre\t\t:"))
+                            genre1 = genre1.lower()
+                            jenis = ["klasik", "pop", "rock", "jazz", "hiphop"]
+                            if genre1.isalpha():
+                                if genre1 in jenis:
+                                    genre += genre1
+                                    break
+                                else:
+                                    print("Pilihlah berdasrkan opsi", end="")
+                                    input()
+                            else:
+                                print("Hanya dalam bentuk huruf", end="")
+                                input()
+                          artis = "Artis : "
+                          artis1 = input("Artis\t\t:")
+                          artis += artis1
+                          while True:
+                            tahun = str("Tahun Rilis : ")
+                            tahun1 = str(input("Tahun Rilis\t:"))
+                            if tahun1.isdigit():
+                                 tahun1 = int(tahun1)
+                                 if tahun1 >= 1950 and tahun1 <= 2025:
+                                    tahun1 = str(tahun1)
+                                    tahun += tahun1
+                                    break
+                                 else:
+                                      print("Tahun hanya dari 1950 - 2025", end="")
+                                      input()
+                            else:
+                                 print("Tahun harus berupa angka", end="")
+                                 input()
+                          while True:
+                            rating = "Rating Musik : "
+                            rating1 = str(input("Rating Musik\t:"))
+                            if rating1.isdigit():
+                                 rating1 = int(rating1)
+                                 if rating1 >= 1 and rating1 <= 5:
+                                    rating1 = str(rating1)
+                                    rating += rating1
+                                    break
+                                 else:
+                                      print("Rating dari 1 - 5", end="")
+                                      input()
+                            else:
+                                 print("Rating harus berupa angka", end="")
+                                 input()
+                          musik = (judulmusik, artis, str(genre), str(tahun), str(rating))
+                          playlist[1].append(musik)
+                          print("""Playlist berhasil di tambahkan """)
+                          print(playlist)
+                          input()
+                          opsi1 = input("""
+Ketik 1 untuk tambahkan musik lagi
+""")
+                          if opsi1 != "1":
+                            print("Beralih ke halama utama", end="")
+                            input()
+                            break
+                     user[3].append(playlist)
                      user
                 elif opsi == "3":
                      user
                 elif opsi == "4":
-                     user
-                elif opsi == "5":
-                     user
+                     print("""
+                           Beralih ke halaman masuk
+                            """, end ="")
+                     input()
+                     statuslogin = None
                 else:
-                     print("Pilihlah 1/2/3/4/5", end="")
+                     print("Pilihlah 1/2/3/4", end="")
                      input()
                      continue
