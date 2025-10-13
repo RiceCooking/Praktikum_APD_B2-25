@@ -169,6 +169,7 @@ Ketik 1 untuk tambahkan musik lagi
                                     if tanyamusik == "1":
                                         if len(plylist[1]) == 0:
                                             print("Playlist belum ada musik")
+                                            #disni harusnya aku tambahin ospi nambah lagu yak
                                         else:
                                             print("= Daftar musik =")
                                             for lagu in plylist[1]:
@@ -241,14 +242,32 @@ Ketik 1 untuk tambahkan musik lagi
                                 statusjudul = True
                                 pilih2 = input("Ketik 1 untuk menghapus playlist\t:")
                                 if pilih2 == "1":
-                                    user
+                                    user[3].remove(plylist)
+                                    print("Playlist berhasil dihapus")
+                                elif pilih2 != "1":
+                                    pilih3 = input("Ketik 1 untuk hapus musik dalam playlist\t:")
+                                    if len(plylist[1]) == 0:
+                                        print("Belum ada musik")
+                                    else:
+                                        print("= Daftar Musik =")
+                                        for lagu in plylist[1]:
+                                            print(f"- {lagu[0]}")
+                                        judulmusik = input("Pilih judul musik yang ingi di hapus\t:")
+                                        statusmusik = False
+                                        for musik in range(len(plylist[1])):
+                                            if plylist[1][musik][0] == judulmusik:
+                                                statusmusik = True
+                                                del plylist[1][musik]
+                                                print("Musik berhasil dihapus")
+                                                break
+                                        if statusmusik != True:
+                                            print("Musik tidak ditemukan")
                                 else:
                                     print("Beralih ke halaman menu")
-                                    break
-                            else:
-                                print("Playlist tidak ditemukan")
-
-
+                            break
+                        if statusjudul != True:
+                            print("Playlist tidak ditemukan, beralih kehalaman menu", end="")
+                            input()
                 elif opsi == "5":
                      print("Beralih ke halaman masuk", end ="")
                      input()
