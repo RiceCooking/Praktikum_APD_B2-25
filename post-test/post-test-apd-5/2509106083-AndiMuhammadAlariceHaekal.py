@@ -233,25 +233,21 @@ Ketik 1 untuk tambahkan musik lagi
                         print("= Daftar Playlist =")
                         for plylist in user[3]:
                             print(f"- {plylist[0]}")
-                            pilih = input("Pilih playlist yang ingin diubah\t:")
-                            statusjudul = False
-                            if playlist[0] == pilih:
+                        
+                        pilih = input("Pilih playlist yang ingin dihapus\t:")
+                        statusjudul = False
+                        for plylist in user[3]:
+                            if plylist[0] == pilih:
                                 statusjudul = True
-                                tanya = input("Ketik 1 untuk hapus playlist\t:")
-                                if tanya == "1":
-                                    del plylist[0]
-                                    print("Playlist berhasil di hapus", end="")
-                                    input()
-                                elif tanya != "1":
-                                    tanya1 = input(f"Ketik 1 untuk hapus musik dalam plylist{plylist[0]}\t")
-                                    if tanya1 == "1":
-                                        user
-                                    else:
-                                        print("Tidak mengahapus playlist manapun", end="")
-                                        input()
-                            elif statusjudul != True:
-                                print("Playlist tidak ditemukan, beralih ke halaman utama", end="")
-                                input()
+                                pilih2 = input("Ketik 1 untuk menghapus playlist\t:")
+                                if pilih2 == "1":
+                                    user
+                                else:
+                                    print("Beralih ke halaman menu")
+                                    break
+                            else:
+                                print("Playlist tidak ditemukan")
+
 
                 elif opsi == "5":
                      print("Beralih ke halaman masuk", end ="")
