@@ -157,7 +157,8 @@ Anda keluar dari Aplikasi
                                 if tanya == "1":
                                     judulbaru = input("Judul baru\t:")
                                     plylist[0] = judulbaru
-                                    print("Judul playlist berhasil diubah")
+                                    print("Judul playlist berhasil diubah", end ="")
+                                    input()
                                 elif tanya != "1":
                                     tanyamusik = input("Ketik 1 untuk ubah musik\nKetik 2 untuk tambah musik\nOpsi\t:")
                                     if tanyamusik == "1":
@@ -294,7 +295,8 @@ Anda keluar dari Aplikasi
                                                 if plylist[1][musik][0] == judulmusik:
                                                     statusmusik = True
                                                     del plylist[1][musik]
-                                                    print("Musik berhasil dihapus")
+                                                    print("Musik berhasil dihapus", end="")
+                                                    input()
                                                     break
                                             if statusmusik != True:
                                                 print("Musik tidak ditemukan")
@@ -413,7 +415,8 @@ Anda keluar dari Aplikasi
                                 if tanya == "1":
                                     judulbaru = input("Judul baru\t:")
                                     plylist[0] = judulbaru
-                                    print("Judul playlist berhasil diubah")
+                                    print("Judul playlist berhasil diubah", end="")
+                                    input()
                                 elif tanya != "1":
                                     tanyamusik = input("Ketik 1 untuk ubah musik\nKetik 2 untuk tambah musik\nOpsi\t:")
                                     if tanyamusik == "1":
@@ -550,7 +553,8 @@ Anda keluar dari Aplikasi
                                                 if plylist[1][musik][0] == judulmusik:
                                                     statusmusik = True
                                                     del plylist[1][musik]
-                                                    print("Musik berhasil dihapus")
+                                                    print("Musik berhasil dihapus", end ="")
+                                                    input()
                                                     break
                                             if statusmusik != True:
                                                 print("Musik tidak ditemukan")
