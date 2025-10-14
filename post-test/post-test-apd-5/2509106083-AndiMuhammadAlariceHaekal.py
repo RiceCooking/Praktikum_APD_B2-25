@@ -69,7 +69,7 @@ Anda keluar dari Aplikasi
 2. Tambah Playlist
 3. Ubah Playlist
 4. Hapus Playlist
-5. Halaman Login
+5. Halaman Masuk
 6. Lihat Data        
 """)
                 opsi = input("Opsi\t:")
@@ -323,7 +323,7 @@ Anda keluar dari Aplikasi
 2. Tambah Playlist
 3. Ubah Playlist
 4. Hapus Playlist
-5. Halaman Login  
+5. Halaman Masuk 
 """)
                 opsi = input("Opsi\t:")
                 if opsi == "1":
