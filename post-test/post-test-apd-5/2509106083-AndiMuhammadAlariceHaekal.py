@@ -300,11 +300,11 @@ Anda keluar dari Aplikasi
                                                     input()
                                                     break
                                             if statusmusik != True:
-                                                print("Musik tidak ditemukan")
+                                                print("Musik tidak ditemukan", end="")
+                                                input()
                                     else:
-                                        print("Tidak menghapus apapun")
-                                else:
-                                    print("Beralih ke halaman menu")
+                                        print("Tidak menghapus apapun, beralih ke halaman utama",end="")
+                                        input()
                             break
                         if statusjudul != True:
                             print("Playlist tidak ditemukan, beralih kehalaman menu", end="")
@@ -559,11 +559,11 @@ Anda keluar dari Aplikasi
                                                     input()
                                                     break
                                             if statusmusik != True:
-                                                print("Musik tidak ditemukan")
+                                                print("Musik tidak ditemukan", end="")
+                                                input()
                                     else:
-                                        print("Tidak menghapus apapun")
-                                else:
-                                    print("Beralih ke halaman menu")
+                                        print("Tidak menghapus apapun, beralih kehalaman utama",end="")
+                                        input()
                             break
                         if statusjudul != True:
                             print("Playlist tidak ditemukan, beralih kehalaman menu", end="")
