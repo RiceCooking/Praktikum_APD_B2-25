@@ -209,11 +209,11 @@ Anda keluar dari Aplikasi
                                                         else:
                                                             print("Hanya dalam bentuk angka")
                                                     plylist[1][musik] = (judulmusik, artis, genre, tahun, rating)
-                                                    print("Lagu berhasil diubah", end="")
+                                                    print("Musik berhasil diubah", end="")
                                                     input()
                                                     break
                                                 if statusmusik != True:
-                                                    print("Lagu tidak ditemukan")
+                                                    print("Musik tidak ditemukan")
                                     elif tanyamusik == "2":
                                         print("= Tambah Musik =")
                                         judulmusik = input("Judul Musik\t:")
@@ -281,22 +281,25 @@ Anda keluar dari Aplikasi
                                     print("Playlist berhasil dihapus")
                                 elif pilih2 != "1":
                                     pilih3 = input("Ketik 1 untuk hapus musik dalam playlist\t:")
-                                    if len(plylist[1]) == 0:
-                                        print("Belum ada musik")
+                                    if pilih3 == "1":
+                                        if len(plylist[1]) == 0:
+                                            print("Belum ada musik")
+                                        else:
+                                            print("= Daftar Musik =")
+                                            for lagu in plylist[1]:
+                                                print(f"- {lagu[0]}")
+                                            judulmusik = input("Pilih judul musik yang ingi di hapus\t:")
+                                            statusmusik = False
+                                            for musik in range(len(plylist[1])):
+                                                if plylist[1][musik][0] == judulmusik:
+                                                    statusmusik = True
+                                                    del plylist[1][musik]
+                                                    print("Musik berhasil dihapus")
+                                                    break
+                                            if statusmusik != True:
+                                                print("Musik tidak ditemukan")
                                     else:
-                                        print("= Daftar Musik =")
-                                        for lagu in plylist[1]:
-                                            print(f"- {lagu[0]}")
-                                        judulmusik = input("Pilih judul musik yang ingi di hapus\t:")
-                                        statusmusik = False
-                                        for musik in range(len(plylist[1])):
-                                            if plylist[1][musik][0] == judulmusik:
-                                                statusmusik = True
-                                                del plylist[1][musik]
-                                                print("Musik berhasil dihapus")
-                                                break
-                                        if statusmusik != True:
-                                            print("Musik tidak ditemukan")
+                                        print("Tidak menghapus apapun")
                                 else:
                                     print("Beralih ke halaman menu")
                             break
@@ -462,11 +465,11 @@ Anda keluar dari Aplikasi
                                                         else:
                                                             print("Hanya dalam bentuk angka")
                                                     plylist[1][musik] = (judulmusik, artis, genre, tahun, rating)
-                                                    print("Lagu berhasil diubah", end="")
+                                                    print("Musik berhasil diubah", end="")
                                                     input()
                                                     break
                                                 if statusmusik != True:
-                                                    print("Lagu tidak ditemukan")
+                                                    print("Musik tidak ditemukan")
                                     elif tanyamusik == "2":
                                         print("= Tambah Musik =")
                                         judulmusik = input("Judul Musik\t:")
@@ -534,22 +537,25 @@ Anda keluar dari Aplikasi
                                     print("Playlist berhasil dihapus")
                                 elif pilih2 != "1":
                                     pilih3 = input("Ketik 1 untuk hapus musik dalam playlist\t:")
-                                    if len(plylist[1]) == 0:
-                                        print("Belum ada musik")
+                                    if pilih3 == "1":
+                                        if len(plylist[1]) == 0:
+                                            print("Belum ada musik")
+                                        else:
+                                            print("= Daftar Musik =")
+                                            for lagu in plylist[1]:
+                                                print(f"- {lagu[0]}")
+                                            judulmusik = input("Pilih judul musik yang ingi di hapus\t:")
+                                            statusmusik = False
+                                            for musik in range(len(plylist[1])):
+                                                if plylist[1][musik][0] == judulmusik:
+                                                    statusmusik = True
+                                                    del plylist[1][musik]
+                                                    print("Musik berhasil dihapus")
+                                                    break
+                                            if statusmusik != True:
+                                                print("Musik tidak ditemukan")
                                     else:
-                                        print("= Daftar Musik =")
-                                        for lagu in plylist[1]:
-                                            print(f"- {lagu[0]}")
-                                        judulmusik = input("Pilih judul musik yang ingi di hapus\t:")
-                                        statusmusik = False
-                                        for musik in range(len(plylist[1])):
-                                            if plylist[1][musik][0] == judulmusik:
-                                                statusmusik = True
-                                                del plylist[1][musik]
-                                                print("Musik berhasil dihapus")
-                                                break
-                                        if statusmusik != True:
-                                            print("Musik tidak ditemukan")
+                                        print("Tidak menghapus apapun")
                                 else:
                                     print("Beralih ke halaman menu")
                             break
