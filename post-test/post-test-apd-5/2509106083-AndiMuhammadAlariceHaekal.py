@@ -259,7 +259,8 @@ Anda keluar dari Aplikasi
                                         print("Berhasil menambahkan musik, beralih ke halaman utama", end="")
                                         input()
                                     else:
-                                        print("Tidak ada yang diubah, beralih ke halaman utama")
+                                        print("Tidak ada yang diubah, beralih ke halaman utama", end="")
+                                        input()
                                 break
                         if statusjudul != True:
                             print("Playlist tidak ditemukan, beralih ke halaman utama", end="")
@@ -267,7 +268,8 @@ Anda keluar dari Aplikasi
                 elif opsi == "4":
                     print("== Hapus Playlist ==")
                     if len(user[3]) == 0:
-                        print("Belum ada playlist")
+                        print("Belum ada playlist",end="")
+                        input()
                     else:
                         print("= Daftar Playlist =")
                         for plylist in user[3]:
@@ -286,7 +288,8 @@ Anda keluar dari Aplikasi
                                     pilih3 = input("Ketik 1 untuk hapus musik dalam playlist\t:")
                                     if pilih3 == "1":
                                         if len(plylist[1]) == 0:
-                                            print("Belum ada musik")
+                                            print("Belum ada musik", end ="")
+                                            input()
                                         else:
                                             print("= Daftar Musik =")
                                             for lagu in plylist[1]:
@@ -527,7 +530,8 @@ Anda keluar dari Aplikasi
                 elif opsi == "4":
                     print("== Hapus Playlist ==")
                     if len(user[3]) == 0:
-                        print("Belum ada playlist")
+                        print("Belum ada playlist",end="")
+                        input()
                     else:
                         print("= Daftar Playlist =")
                         for plylist in user[3]:
@@ -541,12 +545,14 @@ Anda keluar dari Aplikasi
                                 pilih2 = input("Ketik 1 untuk menghapus playlist\t:")
                                 if pilih2 == "1":
                                     user[3].remove(plylist)
-                                    print("Playlist berhasil dihapus")
+                                    print("Playlist berhasil dihapus", end="")
+                                    input()
                                 elif pilih2 != "1":
                                     pilih3 = input("Ketik 1 untuk hapus musik dalam playlist\t:")
                                     if pilih3 == "1":
                                         if len(plylist[1]) == 0:
-                                            print("Belum ada musik")
+                                            print("Belum ada musik",end="")
+                                            input()
                                         else:
                                             print("= Daftar Musik =")
                                             for lagu in plylist[1]:
