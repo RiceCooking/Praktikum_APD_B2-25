@@ -289,7 +289,7 @@ Anda keluar dari Aplikasi
                                             print("= Daftar Musik =")
                                             for lagu in plylist[1]:
                                                 print(f"- {lagu[0]}")
-                                            judulmusik = input("Pilih judul musik yang ingi di hapus\t:")
+                                            judulmusik = input("Pilih judul musik yang ingin di hapus\t:")
                                             statusmusik = False
                                             for musik in range(len(plylist[1])):
                                                 if plylist[1][musik][0] == judulmusik:
@@ -323,7 +323,7 @@ Anda keluar dari Aplikasi
                      continue
         elif user[2] == "User":
                 print("""
-=== Aplikasi Playlist Musik Admin ==
+=== Aplikasi Playlist Musik ==
 1. Lihat Playlist
 2. Tambah Playlist
 3. Ubah Playlist
@@ -547,7 +547,7 @@ Anda keluar dari Aplikasi
                                             print("= Daftar Musik =")
                                             for lagu in plylist[1]:
                                                 print(f"- {lagu[0]}")
-                                            judulmusik = input("Pilih judul musik yang ingi di hapus\t:")
+                                            judulmusik = input("Pilih judul musik yang ingin di hapus\t:")
                                             statusmusik = False
                                             for musik in range(len(plylist[1])):
                                                 if plylist[1][musik][0] == judulmusik:
