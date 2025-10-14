@@ -283,7 +283,8 @@ Anda keluar dari Aplikasi
                                 pilih2 = input("Ketik 1 untuk menghapus playlist\t:")
                                 if pilih2 == "1":
                                     user[3].remove(plylist)
-                                    print("Playlist berhasil dihapus")
+                                    print("Playlist berhasil dihapus",end="")
+                                    input()
                                 elif pilih2 != "1":
                                     pilih3 = input("Ketik 1 untuk hapus musik dalam playlist\t:")
                                     if pilih3 == "1":
