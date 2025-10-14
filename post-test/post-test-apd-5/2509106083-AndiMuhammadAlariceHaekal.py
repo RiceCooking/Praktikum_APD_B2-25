@@ -163,7 +163,8 @@ Anda keluar dari Aplikasi
                                     tanyamusik = input("Ketik 1 untuk ubah musik\nKetik 2 untuk tambah musik\nOpsi\t:")
                                     if tanyamusik == "1":
                                         if len(plylist[1]) == 0:
-                                            print("Playlist belum ada musik")
+                                            print("Playlist belum ada musik",end="")
+                                            input()
                                         else:
                                             print("= Daftar musik =")
                                             for lagu in plylist[1]:
@@ -422,7 +423,8 @@ Anda keluar dari Aplikasi
                                     tanyamusik = input("Ketik 1 untuk ubah musik\nKetik 2 untuk tambah musik\nOpsi\t:")
                                     if tanyamusik == "1":
                                         if len(plylist[1]) == 0:
-                                            print("Playlist belum ada musik")
+                                            print("Playlist belum ada musik", end="")
+                                            input()
                                         else:
                                             print("= Daftar musik =")
                                             for lagu in plylist[1]:
