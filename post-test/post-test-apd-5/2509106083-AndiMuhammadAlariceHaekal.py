@@ -4,8 +4,9 @@ data = [
         ]
 
 statuslogin = None
+cek = False
 
-while True:
+while cek == False:
     os.system("cls || clear")
     print("""
 === Halaman Masuk Playlist Musik ==
@@ -54,7 +55,7 @@ Terimakasih telah menggunakan Playlist Musik
 Anda keluar dari Aplikasi
               """, end = "")
         input()
-        break
+        cek = True
     else:
          print("Pilihlah 1/2/3", end="")
          input()
