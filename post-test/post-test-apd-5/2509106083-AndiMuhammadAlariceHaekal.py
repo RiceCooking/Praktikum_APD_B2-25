@@ -214,7 +214,8 @@ Anda keluar dari Aplikasi
                                                     input()
                                                     break
                                                 if statusmusik != True:
-                                                    print("Musik tidak ditemukan")
+                                                    print("Musik tidak ditemukan", end ="")
+                                                    input()
                                     elif tanyamusik == "2":
                                         print("= Tambah Musik =")
                                         judulmusik = input("Judul Musik\t:")
@@ -472,7 +473,8 @@ Anda keluar dari Aplikasi
                                                     input()
                                                     break
                                                 if statusmusik != True:
-                                                    print("Musik tidak ditemukan")
+                                                    print("Musik tidak ditemukan", end ="")
+                                                    input()
                                     elif tanyamusik == "2":
                                         print("= Tambah Musik =")
                                         judulmusik = input("Judul Musik\t:")
