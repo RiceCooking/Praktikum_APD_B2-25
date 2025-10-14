@@ -559,3 +559,6 @@ Anda keluar dari Aplikasi
                      print("Beralih ke halaman masuk", end ="")
                      input()
                      statuslogin = None
+                else:
+                    print("Pilihlah opsi 1/2/3/4/5", end="")
+                    input()
