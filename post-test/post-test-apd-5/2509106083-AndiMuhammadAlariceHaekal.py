@@ -16,7 +16,7 @@ while cek == False:
 """)
     opsi = input("Pilih Opsi\t:")
     if opsi == "1":
-        print("Halaman Registrasi")
+        print("== Halaman Registrasi ==")
         usn = input("Username\t:")
         pw = input("Password\t:")
         for usn1 in data:
@@ -29,7 +29,7 @@ while cek == False:
             print("Registrasi berhasil", end="")
             input()
     elif opsi == "2":
-        print("Halaman Login")
+        print("== Halaman Login ==")
         usn = input("Username\t:")
         pw = input("Password\t:")
         user = None
@@ -94,6 +94,7 @@ Anda keluar dari Aplikasi
                      playlist = [judul, []]
                      while True:
                           judulmusik = input("Judul Musik\t:")
+                          artis = input("Artis\t\t:")
                           while True:
                             genre = str(input("1. Klasik\n2. Pop\n3. Rock\n4. Jazz\n5. HipHop\nGenre\t\t:"))
                             genre = genre.lower()
@@ -105,7 +106,6 @@ Anda keluar dari Aplikasi
                                     print("Pilihlah berdasrkan opsi")
                             else:
                                 print("Hanya dalam bentuk huruf")
-                          artis = input("Artis\t\t:")
                           while True:
                             tahun = str(input("Tahun Rilis\t:"))
                             if tahun.isdigit():
@@ -350,6 +350,7 @@ Anda keluar dari Aplikasi
                      playlist = [judul, []]
                      while True:
                           judulmusik = input("Judul Musik\t:")
+                          artis = input("Artis\t\t:")
                           while True:
                             genre = str(input("1. Klasik\n2. Pop\n3. Rock\n4. Jazz\n5. HipHop\nGenre\t\t:"))
                             genre = genre.lower()
@@ -361,7 +362,6 @@ Anda keluar dari Aplikasi
                                     print("Pilihlah berdasrkan opsi")
                             else:
                                 print("Hanya dalam bentuk huruf")
-                          artis = input("Artis\t\t:")
                           while True:
                             tahun = str(input("Tahun Rilis\t:"))
                             if tahun.isdigit():
