@@ -137,9 +137,7 @@ Anda keluar dari Aplikasi
                           print("""Playlist berhasil di tambahkan """)
                           print(playlist)
                           input()
-                          opsi1 = input("""
-Ketik 1 untuk tambahkan musik lagi
-""")
+                          opsi1 = input("Ketik 1 untuk tambahkan musik lagi\t:")
                           if opsi1 != "1":
                             print("Beralih ke halaman utama", end="")
                             input()
@@ -165,21 +163,20 @@ Ketik 1 untuk tambahkan musik lagi
                                     plylist[0] = judulbaru
                                     print("Judul playlist berhasil diubah")
                                 elif tanya != "1":
-                                    tanyamusik = input("Ketik 1 untuk ubah musik\t:")
+                                    tanyamusik = input("Ketik 1 untuk ubah musik\nKetik 2 untuk tambah musik\nOpsi\t:")
                                     if tanyamusik == "1":
                                         if len(plylist[1]) == 0:
                                             print("Playlist belum ada musik")
-                                            #disni harusnya aku tambahin ospi nambah lagu yak
                                         else:
                                             print("= Daftar musik =")
                                             for lagu in plylist[1]:
                                                 print(f"- {lagu[0]}")
-                                            judullagu = input("Tulis judul lagunya\t:")
+                                            judullagu = input("Judul musik\t:")
                                             statusmusik = False
                                             for musik in range(len(plylist[1])):
                                                 if plylist[1][musik][0] == judullagu:
                                                     statusmusik = True
-                                                    print(f"Kamu akan mengubah musik{plylist[1][musik][0]}")
+                                                    print(f"Kamu akan mengubah musik {plylist[1][musik][0]}")
                                                     judulmusik = input("Judul Musik\t:")
                                                     artis = input("Artis\t\t:")
                                                     while True:
@@ -205,7 +202,7 @@ Ketik 1 untuk tambahkan musik lagi
                                                         else:
                                                             print("Hanya dalam bentuk angka")
                                                     while True:
-                                                        rating = str(input("Rating Musik : "))
+                                                        rating = str(input("Rating Musik\t:"))
                                                         if rating.isdigit():
                                                             rating = int(rating)
                                                             if rating >= 1 and rating <= 5:
@@ -216,16 +213,58 @@ Ketik 1 untuk tambahkan musik lagi
                                                         else:
                                                             print("Hanya dalam bentuk angka")
                                                     plylist[1][musik] = (judulmusik, artis, genre, tahun, rating)
-                                                    print("Lagu berhasil diubah")
+                                                    print("Lagu berhasil diubah", end="")
+                                                    input()
                                                     break
                                                 if statusmusik != True:
                                                     print("Lagu tidak ditemukan")
+                                    elif tanyamusik == "2":
+                                        print("= Tambah Musik =")
+                                        judulmusik = input("Judul Musik\t:")
+                                        artis = input("Artis\t:")
+                                        while True:
+                                            genre = input("1. Klasik\n2. Pop\n3. Rock\n4. Jazz\n5. HipHop\nGenre\t\t:")
+                                            genre = genre.lower()
+                                            jenis = ["klasik", "pop", "rock", "jazz", "hiphop"]
+                                            if genre.isalpha():
+                                                if genre in jenis:
+                                                    break
+                                                else:
+                                                    print("Pilihlah berdasrkan opsi")
+                                            else:
+                                                print("Hanya dalam bentuk huruf")
+                                        while True:
+                                            tahun = str(input("Tahun Rilis\t:"))
+                                            if tahun.isdigit():
+                                                tahun = int(tahun)
+                                                if tahun >= 1950 and tahun <= 2025:
+                                                    tahun = str(tahun)
+                                                    break
+                                                else:
+                                                    print("Tahun hanya dari 1950 - 2025")
+                                            else:
+                                                print("Hanya dalam bentuk angka")
+                                        while True:
+                                            rating = str(input("Rating Musik\t:"))
+                                            if rating.isdigit():
+                                                rating = int(rating)
+                                                if rating >= 1 and rating <= 5:
+                                                    rating = str(rating)
+                                                    break
+                                                else:
+                                                    print("Rating dari 1 - 5")
+                                            else:
+                                                print("Hanya dalam bentuk angka")
+                                        musikbaru = (judulmusik, artis, genre, str(tahun), str(rating))
+                                        plylist[1].append(musikbaru)
+                                        print("Berhasil menambahkan musik, beralih ke halaman utama", end="")
+                                        input()
                                     else:
-                                        print("Tidak ada yang diubah, beralih ke menu utama")
+                                        print("Tidak ada yang diubah, beralih ke halaman utama")
                                 break
-                            elif statusjudul != True:
-                                print("Playlist tidak ditemukan, beralih ke halaman utama", end="")
-                                input()
+                        if statusjudul != True:
+                            print("Playlist tidak ditemukan, beralih ke halaman utama", end="")
+                            input()
                 elif opsi == "4":
                     print("== Hapus Playlist ==")
                     if len(user[3]) == 0:
