@@ -62,7 +62,7 @@ Anda keluar dari Aplikasi
          continue
     while statuslogin != None:
         os.system("cls || clear")
-        if user[2] == "Admin":
+        if data[statuslogin]["role"] == "admin":
                 print("""
 === Aplikasi Playlist Musik Admin ==
 1. Lihat Playlist
@@ -75,12 +75,12 @@ Anda keluar dari Aplikasi
                 opsi = input("Opsi\t:")
                 if opsi == "1":
                      print("== Lihat Playlist ==")
-                     if len(user[3]) == 0:
+                     if len(data[statuslogin]["playlist"]) == 0:
                          print("Belum ada playlist", end="")
                          input()
                      else:
                          print("= Daftar Playlist =")
-                         for plylist in user[3]:
+                         for plylist in data[statuslogin]["playlist"]:
                              print(f"{plylist[0]}")
                              if len(plylist[1]) == 0:
                                  print("Belum ada musik")
@@ -138,10 +138,10 @@ Anda keluar dari Aplikasi
                             print("Beralih ke halaman utama", end="")
                             input()
                             break
-                     user[3].append(playlist)
+                     data[statuslogin]["playlist"].append(playlist)
                 elif opsi == "3":
                     print("== Ubah Playlist ==")
-                    if len(user[3]) == 0:
+                    if len(data[statuslogin]["playlist"]) == 0:
                         print("Belum ada playlist", end="")
                         input()
                     else:
@@ -327,7 +327,7 @@ Anda keluar dari Aplikasi
                      print("Pilihlah 1/2/3/4/5/6", end="")
                      input()
                      continue
-        elif user[2] == "User":
+        elif data[statuslogin]["role"] == "user":
                 print("""
 === Aplikasi Playlist Musik ==
 1. Lihat Playlist
