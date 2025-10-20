@@ -38,23 +38,17 @@ while cek == False:
         print("== Halaman Login ==")
         usn = input("Username\t:")
         pw = input("Password\t:")
-        user = None
-        for usn1 in data:
-            if usn1[0] == usn:
-                user = usn1
-                break
-        if user != None:
-            if user[1] == pw:
-                print("Login berhasil", end="")
-                statuslogin = user
+        if usn in data:
+            if data[usn]["password"] == pw:
+                print("Berhasil login",end="")
                 input()
+                statuslogin = usn
             else:
                 print("Password salah", end="")
                 input()
         else:
-            print("Username tidak ditemukan",end="")
+            print("Username tidak ditemukan", end="")
             input()
-            continue
     elif opsi == "3":
         print("""
 Terimakasih telah menggunakan Playlist Musik
