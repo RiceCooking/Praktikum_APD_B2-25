@@ -1,7 +1,11 @@
 import os
-data = [
-    ["developer", "123", "Admin", []]
-        ]
+data = {
+    "developer" : {
+        "password" : "123",
+        "role" : "admin",
+        "playlist" : [],
+    },
+}
 
 statuslogin = None
 cek = False
@@ -19,13 +23,15 @@ while cek == False:
         print("== Halaman Registrasi ==")
         usn = input("Username\t:")
         pw = input("Password\t:")
-        for usn1 in data:
-            if usn1[0] == usn:
-                print("Username tidak tersedia", end = "")
-                input()
-                break
+        if usn in data:
+            print("Username tidak tersedia", end="")
+            input()
         else:
-            data.append([usn, pw, "User", []])
+            data[usn] = {
+                "password" : pw,
+                "role" : "user",
+                "playlist" : [],
+            }
             print("Registrasi berhasil", end="")
             input()
     elif opsi == "2":
