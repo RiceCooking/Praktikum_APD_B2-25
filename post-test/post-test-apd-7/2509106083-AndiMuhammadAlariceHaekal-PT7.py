@@ -116,6 +116,11 @@ def tambahplaylist(data, statuslogin):
     data[statuslogin]["playlist"].append(playlist)
     return data
         
+def halaman_masuk():
+    print("Beralih ke halaman masuk", end ="")
+    input()
+    return None
+
 
 
 while cek == False:
@@ -334,9 +339,7 @@ while cek == False:
                             print("Playlist tidak ditemukan, beralih kehalaman menu", end="")
                             input()
                 elif opsi == "5":
-                     print("Beralih ke halaman masuk", end ="")
-                     input()
-                     statuslogin = None
+                     statuslogin = halaman_masuk()
                 elif opsi == "6":
                     print("== Lihat Data ==")
                     for akun, bio in data.items():
