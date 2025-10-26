@@ -10,6 +10,23 @@ data = {
 statuslogin = None
 cek = False
 
+def register(data):
+    print("== Halaman Registrasi ==")
+    usn = input("Username\t:")
+    pw = input("Password\t:")
+    if usn in data:
+        print("Username tidak tersedia", end="")
+        input()
+    else:
+        data[usn] = {
+            "password" : pw,
+            "role" : "user",
+            "playlist" : [],
+        }
+        print("Registrasi berhasil", end="")
+        input()
+    return data
+
 while cek == False:
     os.system("cls || clear")
     print("""
@@ -20,20 +37,7 @@ while cek == False:
 """)
     opsi = input("Pilih Opsi\t:")
     if opsi == "1":
-        print("== Halaman Registrasi ==")
-        usn = input("Username\t:")
-        pw = input("Password\t:")
-        if usn in data:
-            print("Username tidak tersedia", end="")
-            input()
-        else:
-            data[usn] = {
-                "password" : pw,
-                "role" : "user",
-                "playlist" : [],
-            }
-            print("Registrasi berhasil", end="")
-            input()
+        data = register(data)
     elif opsi == "2":
         print("== Halaman Login ==")
         usn = input("Username\t:")
