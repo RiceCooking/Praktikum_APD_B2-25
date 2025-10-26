@@ -101,7 +101,6 @@ def tambah_musik():
                 print("Rating harus berupa angka")
         return (judulmusik, artis, genre, tahun, rating)
 
-
 def tambah_playlist(data, statuslogin):
     print("== Tambah Playlist ==")
     judul = input("Judul Playlist\t:")
