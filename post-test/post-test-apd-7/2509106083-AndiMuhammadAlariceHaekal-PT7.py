@@ -44,6 +44,15 @@ def login(data):
         input()
     return None
 
+def keluar():
+    print("""
+Terimakasih telah menggunakan Playlist Musik
+Anda keluar dari Aplikasi
+              """, end = "")
+    input()
+    return True
+
+
 while cek == False:
     os.system("cls || clear")
     print("""
@@ -58,12 +67,7 @@ while cek == False:
     elif opsi == "2":
         statuslogin = login(data)
     elif opsi == "3":
-        print("""
-Terimakasih telah menggunakan Playlist Musik
-Anda keluar dari Aplikasi
-              """, end = "")
-        input()
-        cek = True
+        cek = keluar()
     else:
          print("Pilihlah 1/2/3", end="")
          input()
