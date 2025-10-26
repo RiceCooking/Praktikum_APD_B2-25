@@ -76,17 +76,21 @@ while cek == False:
 2. Login
 3. Keluar dari Aplikasi
 """)
-    opsi = input("Pilih Opsi\t:")
-    if opsi == "1":
-        data = register(data)
-    elif opsi == "2":
-        statuslogin = login(data)
-    elif opsi == "3":
-        cek = keluar()
-    else:
-         print("Pilihlah 1/2/3", end="")
-         input()
-         continue
+    try:
+        opsi = int(input("Pilih Opsi\t:"))
+        if opsi == 1:
+            data = register(data)
+        elif opsi == 2:
+            statuslogin = login(data)
+        elif opsi == 3:
+            cek = keluar()
+        else:
+            print("Pilihlah 1/2/3", end="")
+            input()
+            continue
+    except ValueError:
+        print("Input hanya berupa angka",end="")
+        input()
     while statuslogin != None:
         os.system("cls || clear")
         if data[statuslogin]["role"] == "admin":
