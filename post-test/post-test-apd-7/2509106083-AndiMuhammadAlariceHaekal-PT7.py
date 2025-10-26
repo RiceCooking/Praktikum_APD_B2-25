@@ -52,6 +52,21 @@ Anda keluar dari Aplikasi
     input()
     return True
 
+def lihatplaylist():
+    print("== Lihat Playlist ==")
+    if len(data[statuslogin]["playlist"]) == 0:
+        print("Belum ada playlist", end="")
+    else:
+        print("= Daftar Playlist =")
+        for plylist in data[statuslogin]["playlist"]:
+            print(f"{plylist[0]}")
+            if len(plylist[1]) == 0:
+                print("Belum ada musik",end="")
+            else:
+                for lagu in plylist[1]:
+                    print(f"{lagu[0]} {lagu[1]} {lagu[2]} {lagu[3]} {lagu[4]}")
+    input()
+
 
 while cek == False:
     os.system("cls || clear")
@@ -86,19 +101,7 @@ while cek == False:
 """)
                 opsi = input("Opsi\t:")
                 if opsi == "1":
-                     print("== Lihat Playlist ==")
-                     if len(data[statuslogin]["playlist"]) == 0:
-                         print("Belum ada playlist", end="")
-                     else:
-                         print("= Daftar Playlist =")
-                         for plylist in data[statuslogin]["playlist"]:
-                             print(f"{plylist[0]}")
-                             if len(plylist[1]) == 0:
-                                 print("Belum ada musik",end="")
-                             else:
-                                 for lagu in plylist[1]:
-                                    print(f"{lagu[0]} {lagu[1]} {lagu[2]} {lagu[3]} {lagu[4]}")
-                     input()
+                     lihatplaylist()
                 elif opsi == "2":
                      print("== Tambah Playlist ==")
                      judul = input("Judul Playlist\t:")
