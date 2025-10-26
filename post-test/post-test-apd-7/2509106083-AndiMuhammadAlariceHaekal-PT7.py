@@ -27,6 +27,23 @@ def register(data):
         input()
     return data
 
+def login(data):
+    print("== Halaman Login ==")
+    usn = input("Username\t:")
+    pw = input("Password\t:")
+    if usn in data:
+        if data[usn]["password"] == pw:
+            print("Berhasil login",end="")
+            input()
+            return usn
+        else:
+            print("Password salah", end="")
+            input()
+    else:
+        print("Username tidak ditemukan", end="")
+        input()
+    return None
+
 while cek == False:
     os.system("cls || clear")
     print("""
@@ -39,20 +56,7 @@ while cek == False:
     if opsi == "1":
         data = register(data)
     elif opsi == "2":
-        print("== Halaman Login ==")
-        usn = input("Username\t:")
-        pw = input("Password\t:")
-        if usn in data:
-            if data[usn]["password"] == pw:
-                print("Berhasil login",end="")
-                input()
-                statuslogin = usn
-            else:
-                print("Password salah", end="")
-                input()
-        else:
-            print("Username tidak ditemukan", end="")
-            input()
+        statuslogin = login(data)
     elif opsi == "3":
         print("""
 Terimakasih telah menggunakan Playlist Musik
