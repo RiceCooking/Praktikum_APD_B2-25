@@ -52,7 +52,7 @@ Anda keluar dari Aplikasi
     input()
     return True
 
-def lihatplaylist():
+def lihat_playlist():
     print("== Lihat Playlist ==")
     if len(data[statuslogin]["playlist"]) == 0:
         print("Belum ada playlist", end="")
@@ -67,11 +67,7 @@ def lihatplaylist():
                     print(f"{lagu[0]} {lagu[1]} {lagu[2]} {lagu[3]} {lagu[4]}")
     input()
 
-def tambahplaylist(data, statuslogin):
-    print("== Tambah Playlist ==")
-    judul = input("Judul Playlist\t:")
-    playlist = [judul, []]
-    while True:
+def tambah_musik():
         judulmusik = input("Judul Musik\t:")
         artis = input("Artis\t\t:")
         while True:
@@ -103,7 +99,15 @@ def tambahplaylist(data, statuslogin):
                     print("Rating dari 1 - 5")
             except ValueError:
                 print("Rating harus berupa angka")
-        musik = (judulmusik, artis, genre, tahun, rating)
+        return (judulmusik, artis, genre, tahun, rating)
+
+
+def tambah_playlist(data, statuslogin):
+    print("== Tambah Playlist ==")
+    judul = input("Judul Playlist\t:")
+    playlist = [judul, []]
+    while True:
+        musik = tambah_musik()
         playlist[1].append(musik)
         print(playlist)
         input()
@@ -115,7 +119,9 @@ def tambahplaylist(data, statuslogin):
             break
     data[statuslogin]["playlist"].append(playlist)
     return data
-        
+
+
+
 def halaman_masuk():
     print("Beralih ke halaman masuk", end ="")
     input()
@@ -160,9 +166,9 @@ while cek == False:
 """)
                 opsi = input("Opsi\t:")
                 if opsi == "1":
-                     lihatplaylist()
+                     lihat_playlist()
                 elif opsi == "2":
-                    data = tambahplaylist(data, statuslogin)
+                    data = tambah_playlist(data, statuslogin)
                 elif opsi == "3":
                     print("== Ubah Playlist ==")
                     if len(data[statuslogin]["playlist"]) == 0:
