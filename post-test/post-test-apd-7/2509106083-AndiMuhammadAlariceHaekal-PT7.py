@@ -238,33 +238,7 @@ def lihat_data():
         print(akun, bio)
     input()
 
-
-while cek == False:
-    os.system("cls || clear")
-    print("""
-=== Halaman Masuk Playlist Musik ==
-1. Registrasi
-2. Login
-3. Keluar dari Aplikasi
-""")
-    try:
-        opsi = int(input("Pilih Opsi\t:"))
-        if opsi == 1:
-            data = register(data)
-        elif opsi == 2:
-            statuslogin = login(data)
-        elif opsi == 3:
-            cek = keluar()
-        else:
-            print("Pilihlah 1/2/3", end="")
-            input()
-            continue
-    except ValueError:
-        print("Input hanya berupa angka",end="")
-        input()
-    while statuslogin != None:
-        os.system("cls || clear")
-        if data[statuslogin]["role"] == "admin":
+def menu_admin(data, statuslogin):
                 print("""
 === Aplikasi Playlist Musik Admin ==
 1. Lihat Playlist
@@ -294,6 +268,35 @@ while cek == False:
                 except ValueError:
                     print("Input hanya berupa angka",end="")
                     input()
+                return data, statuslogin
+
+while cek == False:
+    os.system("cls || clear")
+    print("""
+=== Halaman Masuk Playlist Musik ==
+1. Registrasi
+2. Login
+3. Keluar dari Aplikasi
+""")
+    try:
+        opsi = int(input("Pilih Opsi\t:"))
+        if opsi == 1:
+            data = register(data)
+        elif opsi == 2:
+            statuslogin = login(data)
+        elif opsi == 3:
+            cek = keluar()
+        else:
+            print("Pilihlah 1/2/3", end="")
+            input()
+            continue
+    except ValueError:
+        print("Input hanya berupa angka",end="")
+        input()
+    while statuslogin != None:
+        os.system("cls || clear")
+        if data[statuslogin]["role"] == "admin":
+            data, statuslogin = menu_admin(data, statuslogin)
         elif data[statuslogin]["role"] == "user":
                 print("""
 === Aplikasi Playlist Musik ==
