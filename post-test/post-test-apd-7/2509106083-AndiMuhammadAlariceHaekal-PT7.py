@@ -165,6 +165,8 @@ def ubah_playlist(data, statuslogin):
                     elif tanyamusik == "2":
                         musik = tambah_musik()
                         plylist[1].append(musik)
+                        print("Berhasil menambahkan musik, beralih ke halaman utama", end="")
+                        input()
                     else:
                         print("Tidak ada yang diubah, beralih ke halaman utama", end="")
                         input()              
@@ -173,6 +175,58 @@ def ubah_playlist(data, statuslogin):
             print("Playlist tidak ditemukan, beralih kehalaman menu", end="")
             input()
     return data
+
+def hapus_playlist(data, statuslogin):
+    print("== Hapus Playlist ==")
+    if len(data[statuslogin]["playlist"]) == 0:
+            print("Belum ada playlist",end="")
+            input()
+    else:
+        print("= Daftar Playlist =")
+        for plylist in data[statuslogin]["playlist"]:
+            print(f"- {plylist[0]}")
+                        
+        pilih = input("Pilih playlist yang ingin dihapus\t:")
+        statusjudul = False
+        for plylist in data[statuslogin]["playlist"]:
+            if plylist[0] == pilih:
+                statusjudul = True
+                pilih2 = input("Ketik 1 untuk menghapus playlist\t:")
+                if pilih2 == "1":
+                    data[statuslogin]["playlist"].remove(plylist)
+                    print("Playlist berhasil dihapus",end="")
+                    input()
+                elif pilih2 != "1":
+                    pilih3 = input("Ketik 1 untuk hapus musik dalam playlist\t:")
+                    if pilih3 == "1":
+                        if len(plylist[1])==0:
+                            print("Belum ada musik", end ="")
+                            input()
+                        else:
+                            print("= Daftar Musik =")
+                            for lagu in plylist[1]:
+                                print(f"- {lagu[0]}")
+                            judulmusik = input("Pilih judul musik yang ingin di hapus\t:")
+                            statusmusik = False
+                            for musik in range(len(plylist[1])):
+                                if plylist[1][musik][0] == judulmusik:
+                                    statusmusik = True
+                                    del plylist[1][musik]
+                                    print("Musik berhasil dihapus", end="")
+                                    input()
+                                    break
+                            if statusmusik != True:
+                                print("Musik tidak ditemukan", end="")
+                                input()
+                    else:
+                        print("Tidak menghapus apapun, beralih ke halaman utama",end="")
+                        input()
+                break
+        if statusjudul != True:
+            print("Playlist tidak ditemukan, beralih kehalaman menu", end="")
+            input()
+    return data
+
 
 def halaman_masuk():
     print("Beralih ke halaman masuk", end ="")
@@ -224,54 +278,7 @@ while cek == False:
                 elif opsi == "3":
                     data = ubah_playlist(data, statuslogin)
                 elif opsi == "4":
-                    print("== Hapus Playlist ==")
-                    if len(data[statuslogin]["playlist"]) == 0:
-                        print("Belum ada playlist",end="")
-                        input()
-                    else:
-                        print("= Daftar Playlist =")
-                        for plylist in data[statuslogin]["playlist"]:
-                            print(f"- {plylist[0]}")
-                        
-                        pilih = input("Pilih playlist yang ingin dihapus\t:")
-                        statusjudul = False
-                        for plylist in data[statuslogin]["playlist"]:
-                            if plylist[0] == pilih:
-                                statusjudul = True
-                                pilih2 = input("Ketik 1 untuk menghapus playlist\t:")
-                                if pilih2 == "1":
-                                    data[statuslogin]["playlist"].remove(plylist)
-                                    print("Playlist berhasil dihapus",end="")
-                                    input()
-                                elif pilih2 != "1":
-                                    pilih3 = input("Ketik 1 untuk hapus musik dalam playlist\t:")
-                                    if pilih3 == "1":
-                                        if len(plylist[1]) == 0:
-                                            print("Belum ada musik", end ="")
-                                            input()
-                                        else:
-                                            print("= Daftar Musik =")
-                                            for lagu in plylist[1]:
-                                                print(f"- {lagu[0]}")
-                                            judulmusik = input("Pilih judul musik yang ingin di hapus\t:")
-                                            statusmusik = False
-                                            for musik in range(len(plylist[1])):
-                                                if plylist[1][musik][0] == judulmusik:
-                                                    statusmusik = True
-                                                    del plylist[1][musik]
-                                                    print("Musik berhasil dihapus", end="")
-                                                    input()
-                                                    break
-                                            if statusmusik != True:
-                                                print("Musik tidak ditemukan", end="")
-                                                input()
-                                    else:
-                                        print("Tidak menghapus apapun, beralih ke halaman utama",end="")
-                                        input()
-                                break
-                        if statusjudul != True:
-                            print("Playlist tidak ditemukan, beralih kehalaman menu", end="")
-                            input()
+                    data = hapus_playlist(data, statuslogin)
                 elif opsi == "5":
                      statuslogin = halaman_masuk()
                 elif opsi == "6":
