@@ -227,12 +227,16 @@ def hapus_playlist(data, statuslogin):
             input()
     return data
 
-
 def halaman_masuk():
     print("Beralih ke halaman masuk", end ="")
     input()
     return None
 
+def lihat_data():
+    print("== Lihat Data ==")
+    for akun, bio in data.items():
+        print(akun, bio)
+    input()
 
 
 while cek == False:
@@ -282,10 +286,7 @@ while cek == False:
                 elif opsi == "5":
                      statuslogin = halaman_masuk()
                 elif opsi == "6":
-                    print("== Lihat Data ==")
-                    for akun, bio in data.items():
-                        print(akun, bio)
-                    input()
+                    lihat_data()
                 else:
                      print("Pilihlah 1/2/3/4/5/6", end="")
                      input()
