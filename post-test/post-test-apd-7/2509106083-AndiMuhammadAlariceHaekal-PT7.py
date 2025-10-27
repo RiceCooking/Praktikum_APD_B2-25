@@ -274,23 +274,26 @@ while cek == False:
 5. Halaman Masuk
 6. Lihat Data        
 """)
-                opsi = input("Opsi\t:")
-                if opsi == "1":
-                     lihat_playlist()
-                elif opsi == "2":
-                    data = tambah_playlist(data, statuslogin)
-                elif opsi == "3":
-                    data = ubah_playlist(data, statuslogin)
-                elif opsi == "4":
-                    data = hapus_playlist(data, statuslogin)
-                elif opsi == "5":
-                     statuslogin = halaman_masuk()
-                elif opsi == "6":
-                    lihat_data()
-                else:
-                     print("Pilihlah 1/2/3/4/5/6", end="")
-                     input()
-                     continue
+                try:
+                    opsi = int(input("Opsi\t:"))
+                    if opsi == 1:
+                        lihat_playlist()
+                    elif opsi == 2:
+                        data = tambah_playlist(data, statuslogin)
+                    elif opsi == 3:
+                        data = ubah_playlist(data, statuslogin)
+                    elif opsi == 4:
+                        data = hapus_playlist(data, statuslogin)
+                    elif opsi == 5:
+                        statuslogin = halaman_masuk()
+                    elif opsi == 6:
+                        lihat_data()
+                    else:
+                        print("Pilihlah 1/2/3/4/5/6", end="")
+                        input()
+                except ValueError:
+                    print("Input hanya berupa angka",end="")
+                    input()
         elif data[statuslogin]["role"] == "user":
                 print("""
 === Aplikasi Playlist Musik ==
