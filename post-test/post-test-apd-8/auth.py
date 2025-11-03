@@ -1,4 +1,4 @@
-# auth.py
+
 def register(data):
     print("== Halaman Registrasi ==")
     usn = input("Username\t: ")
