@@ -1,7 +1,7 @@
 import os
 from data import load_data, save_data
 from auth import register, login, keluar
-from playlist import lihat_playlist, tambah_playlist, 
+from playlist import lihat_playlist, tambah_playlist, ubah_playlist, hapus_playlist
 
 def halaman_masuk():
     print("Beralih ke halaman masuk", end="")

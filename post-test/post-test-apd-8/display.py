@@ -1,14 +1,27 @@
 from prettytable import PrettyTable
 
-def tampilkan_playlist(playlists):
-    for item in playlists:
-        judul, lagu_list = item
-        print(f"\n# Playlist: {judul}")
-        if len(lagu_list) == 0:
-            print("  Belum ada musik pada playlist ini.")
-        else:
-            table = PrettyTable()
-            table.field_names = ["Judul", "Artis", "Genre", "Tahun", "Rating"]
-            for lagu in lagu_list:
-                table.add_row(lagu)
-            print(table)
+def tampilkan_playlist(data, username):
+    if len(data[username]["playlist"]) == 0:
+        print("Belum ada playlist untuk ditampilkan.")
+        return
+
+    table = PrettyTable()
+    table.field_names = ["No", "Judul Playlist", "Total Lagu"]
+
+    for idx, plylist in enumerate(data[username]["playlist"], start=1):
+        table.add_row([idx, plylist[0], len(plylist[1])])
+
+    print(table)
+
+def tampilkan_musik(plylist):
+    if len(plylist[1]) == 0:
+        print("Belum ada musik dalam playlist ini.")
+        return
+
+    table = PrettyTable()
+    table.field_names = ["No", "Judul", "Artis", "Genre", "Tahun", "Rating"]
+
+    for idx, lagu in enumerate(plylist[1], start=1):
+        table.add_row([idx, lagu[0], lagu[1], lagu[2], lagu[3], lagu[4]])
+
+    print(table)
