@@ -1,0 +1,12 @@
+{
+    "developer": {
+        "password": "123",
+        "role": "admin",
+        "playlist": []
+    },
+    "Andi": {
+        "password": "123",
+        "role": "user",
+        "playlist": []
+    }
+}

@@ -1,35 +1,129 @@
-from display import tampilkan_playlist
-from data import save_data
+from display import tampilkan_playlist, tampilkan_musik
+
+def tambah_musik():
+        judulmusik = input("Judul Musik\t:")
+        artis = input("Artis\t\t:")
+        while True:
+            try:
+                genre = str(input("1. Klasik\n2. Pop\n3. Rock\n4. Jazz\n5. HipHop\nGenre\t\t:"))
+                genre = genre.lower()
+                jenis = ["klasik", "pop", "rock", "jazz", "hiphop"]
+                if genre in jenis:
+                    break
+                else:
+                    print("Pilihlah berdasrkan opsi")
+            except ValueError:
+                print("Hanya dalam bentuk huruf")
+        while True:
+            try:
+                tahun = int(input("Tahun Rilis\t:"))
+                if tahun >= 1950 and tahun <= 2025:
+                    break
+                else:
+                    print("Tahun hanya dari 1950 - 2025")
+            except ValueError:
+                print("Tahun harus berupa angka")
+        while True:
+            try:
+                rating = int(input("Rating Musik\t:"))
+                if rating >= 1 and rating <= 5:
+                    break
+                else:
+                    print("Rating dari 1 - 5")
+            except ValueError:
+                print("Rating harus berupa angka")
+        return (judulmusik, artis, genre, tahun, rating)
+
 
 def lihat_playlist(data, statuslogin):
     print("== Lihat Playlist ==")
-    if len(data[statuslogin]["playlist"]) == 0:
-        print("Belum ada playlist", end="")
-    else:
-        tampilkan_playlist(data[statuslogin]["playlist"])
-    input()
-
-def tambah_musik():
-    judul = input("Judul Musik\t: ")
-    artis = input("Artis\t\t: ")
-    genre = input("Genre\t\t: ").lower()
-    tahun = int(input("Tahun Rilis\t: "))
-    rating = int(input("Rating Musik\t: "))
-    return (judul, artis, genre, tahun, rating)
+    tampilkan_playlist(data, statuslogin)
+    input("Tekan Enter untuk kembali...")
 
 def tambah_playlist(data, statuslogin):
     print("== Tambah Playlist ==")
-    judul_playlist = input("Judul Playlist\t: ")
-    playlist = [judul_playlist, []]
+    judul = input("Judul Playlist\t: ")
+    playlist = [judul, []]
     while True:
         musik = tambah_musik()
         playlist[1].append(musik)
         print("Musik berhasil ditambahkan ke playlist.")
-        opsi = input("Tambah musik lagi? (y/n): ")
-        if opsi.lower() != 'y':
+
+        lanjut = input("Tambah musik lagi? (1 = Ya, lainnya = Tidak)\t: ")
+        if lanjut != "1":
             break
     data[statuslogin]["playlist"].append(playlist)
-    save_data(data)
-    print("Playlist berhasil disimpan!", end="")
+    print("Playlist berhasil dibuat.", end="")
+    input()
+    return data
+
+def ubah_playlist(data, statuslogin):
+    print("== Ubah Playlist ==")
+    if not data[statuslogin]["playlist"]:
+        print("Belum ada playlist.", end="")
+        input()
+        return data
+    
+    tampilkan_playlist(data, statuslogin)
+    pilih = input("Pilih judul playlist yang ingin diubah\t: ")
+    for plylist in data[statuslogin]["playlist"]:
+        if plylist[0] == pilih:
+            print(f"\n== Ubah Playlist: {pilih} ==")
+            print("1. Ubah Judul")
+            print("2. Ubah Musik dalam Playlist")
+            print("3. Tambahkan Musik Baru")
+            opsi = input("Pilih opsi\t: ")
+
+            if opsi == "1":
+                plylist[0] = input("Judul baru\t: ")
+                print("Judul playlist berhasil diubah.", end="")
+            elif opsi == "2":
+                if not plylist[1]:
+                    print("Belum ada musik dalam playlist.", end="")
+                else:
+                    tampilkan_musik(plylist)
+                    judullagu = input("Judul musik yang ingin diubah\t: ")
+                    for idx, lagu in enumerate(plylist[1]):
+                        if lagu[0] == judullagu:
+                            print(f"\nMengubah musik: {lagu[0]}")
+                            plylist[1][idx] = tambah_musik()
+                            print("Musik berhasil diubah.", end="")
+                            break
+                    else:
+                        print("Musik tidak ditemukan.", end="")
+            elif opsi == "3":
+                musik = tambah_musik()
+                plylist[1].append(musik)
+                print("Musik berhasil ditambahkan.", end="")
+            else:
+                print("Opsi tidak valid.", end="")
+            input()
+            return data
+
+    print("Playlist tidak ditemukan.", end="")
+    input()
+    return data
+
+def hapus_playlist(data, statuslogin):
+    print("== Hapus Playlist ==")
+    if not data[statuslogin]["playlist"]:
+        print("Belum ada playlist.", end="")
+        input()
+        return data
+
+    tampilkan_playlist(data, statuslogin)
+    pilih = input("Pilih judul playlist yang ingin dihapus\t: ")
+    for plylist in data[statuslogin]["playlist"]:
+        if plylist[0] == pilih:
+            konfirmasi = input("Yakin ingin menghapus playlist ini? (1=Ya)\t: ")
+            if konfirmasi == "1":
+                data[statuslogin]["playlist"].remove(plylist)
+                print("Playlist berhasil dihapus.", end="")
+            else:
+                print("Penghapusan dibatalkan.", end="")
+            input()
+            return data
+
+    print("Playlist tidak ditemukan.", end="")
     input()
     return data
