@@ -27,6 +27,7 @@ def menu_admin(data, statuslogin):
                 data = hapus_playlist(data, statuslogin)
             elif opsi == 5:
                 statuslogin = halaman_masuk()
+                return statuslogin 
             elif opsi == 6:
                 lihat_semua_data(data)
             else:
@@ -60,6 +61,7 @@ def menu_user(data, statuslogin):
                 data = hapus_playlist(data, statuslogin)
             elif opsi == 5:
                 statuslogin = halaman_masuk()
+                return statuslogin 
             else:
                 print("Pilihlah 1/2/3/4/5", end="")
                 input()
