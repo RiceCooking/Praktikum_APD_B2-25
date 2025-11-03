@@ -1,7 +1,7 @@
 import os
-from user import register, login, keluar
+from auth import register, login, keluar
 from playlist import lihat_playlist, tambah_playlist, ubah_playlist, hapus_playlist
-from data_handler import load_data, save_data
+from data import load_data, save_data
 
 def menu_admin(data, statuslogin):
     while True:
@@ -13,7 +13,7 @@ def menu_admin(data, statuslogin):
 3. Ubah Playlist
 4. Hapus Playlist
 5. Halaman Masuk
-6. Lihat Semua Data (Admin)
+6. Lihat Semua Data
 """)
         try:
             opsi = int(input("Opsi\t:"))
