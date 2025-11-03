@@ -8,7 +8,6 @@ def load_data():
         with open(DATA_FILE, "r") as f:
             return json.load(f)
     else:
-        # Default data jika belum ada file JSON
         return {
             "developer": {
                 "password": "123",
