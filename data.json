@@ -2,27 +2,7 @@
     "developer": {
         "password": "123",
         "role": "admin",
-        "playlist": [
-            [
-                "ASFASF",
-                [
-                    [
-                        "ASFASFAS",
-                        "FASFASF",
-                        "pop",
-                        1999,
-                        5
-                    ],
-                    [
-                        "AFASFAS",
-                        "FASFA",
-                        "pop",
-                        2020,
-                        1
-                    ]
-                ]
-            ]
-        ]
+        "playlist": []
     },
     "Andi": {
         "password": "123",

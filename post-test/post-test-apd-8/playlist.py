@@ -1,4 +1,5 @@
 from display import tampilkan_playlist, tampilkan_musik, tampilkan_semua_data
+from prettytable import PrettyTable
 
 def tambah_musik():
         judulmusik = input("Judul Musik\t:")
@@ -106,26 +107,74 @@ def ubah_playlist(data, statuslogin):
 
 def hapus_playlist(data, statuslogin):
     print("== Hapus Playlist ==")
-    if not data[statuslogin]["playlist"]:
-        print("Belum ada playlist.", end="")
+    
+    if len(data[statuslogin]["playlist"]) == 0:
+        print("Belum ada playlist", end="")
         input()
         return data
+    print("\n= Daftar Playlist =")
+    table = PrettyTable()
+    table.field_names = ["No", "Judul Playlist", "Jumlah Lagu"]
+    
+    for idx, plylist in enumerate(data[statuslogin]["playlist"], start=1):
+        table.add_row([idx, plylist[0], len(plylist[1])])
+        
+    print(table)
 
-    tampilkan_playlist(data, statuslogin)
-    pilih = input("Pilih judul playlist yang ingin dihapus\t: ")
+    pilih = input("Pilih judul playlist yang ingin dihapus atau kelola\t: ")
+    statusjudul = False
+    
     for plylist in data[statuslogin]["playlist"]:
         if plylist[0] == pilih:
-            konfirmasi = input("Yakin ingin menghapus playlist ini? (1=Ya)\t: ")
-            if konfirmasi == "1":
+            statusjudul = True
+            print("\n1. Hapus seluruh playlist")
+            print("2. Hapus lagu tertentu dalam playlist")
+            pilihan = input("Pilih opsi\t: ")
+            
+            if pilihan == "1":
                 data[statuslogin]["playlist"].remove(plylist)
                 print("Playlist berhasil dihapus.", end="")
+                input()
+                
+            elif pilihan == "2":
+                if len(plylist[1]) == 0:
+                    print("Belum ada musik dalam playlist ini", end="")
+                    input()
+                else:
+                    print("\n= Daftar Musik =")
+                    table = PrettyTable()
+                    table.field_names = ["No", "Judul Musik", "Artis", "Genre", "Tahun", "Rating"]
+                    
+                    for idx, lagu in enumerate(plylist[1], start=1):
+                        table.add_row([idx, lagu[0], lagu[1], lagu[2], lagu[3], lagu[4]])
+                    
+                    print(table)
+                    
+                    judulmusik = input("Pilih judul musik yang ingin dihapus\t: ")
+                    statusmusik = False
+                    
+                    for idx, lagu in enumerate(plylist[1]):
+                        if lagu[0] == judulmusik:
+                            statusmusik = True
+                            del plylist[1][idx]
+                            print("Musik berhasil dihapus", end="")
+                            input()
+                            break
+                    
+                    if not statusmusik:
+                        print("Musik tidak ditemukan", end="")
+                        input()
+            
             else:
-                print("Penghapusan dibatalkan.", end="")
-            input()
-            return data
-
-    print("Playlist tidak ditemukan.", end="")
-    input()
+                print("Tidak ada aksi yang dilakukan.", end="")
+                input()
+            
+            break
+    
+    if not statusjudul:
+        print("Playlist tidak ditemukan.", end="")
+        input()
+    
     return data
 
 def lihat_semua_data(data):
