@@ -24,7 +24,7 @@ while cek == False:
         opsi = int(input("Pilih Opsi\t: "))
         if opsi == 1:
             data = register(data)
-            save_data(data)  # Simpan setelah registrasi
+            save_data(data)  
         elif opsi == 2:
             statuslogin = login(data)
         elif opsi == 3:
