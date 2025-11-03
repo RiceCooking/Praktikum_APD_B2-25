@@ -182,3 +182,7 @@ def lihat_semua_data(data):
     tampilkan_semua_data(data)
     input("Tekan Enter untuk kembali...")
 
+def halaman_masuk():
+    print("Beralih ke halaman masuk", end ="")
+    input()
+    return None
