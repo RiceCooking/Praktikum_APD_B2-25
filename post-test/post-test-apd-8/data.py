@@ -1,21 +1,22 @@
 import json
 import os
 
-DATA_FILE = "data.json"
+FILE_PATH = "data.json"
 
 def load_data():
-    if os.path.exists(DATA_FILE):
-        with open(DATA_FILE, "r") as f:
-            return json.load(f)
-    else:
-        return {
+    if not os.path.exists(FILE_PATH):
+        data = {
             "developer": {
                 "password": "123",
                 "role": "admin",
-                "playlist": [],
-            },
+                "playlist": []
+            }
         }
+        save_data(data)
+        return data
+    with open(FILE_PATH, "r") as f:
+        return json.load(f)
 
 def save_data(data):
-    with open(DATA_FILE, "w") as f:
+    with open(FILE_PATH, "w") as f:
         json.dump(data, f, indent=4)
