@@ -1,4 +1,4 @@
-from display import tampilkan_playlist, tampilkan_musik
+from display import tampilkan_playlist, tampilkan_musik, tampilkan_semua_data
 
 def tambah_musik():
         judulmusik = input("Judul Musik\t:")
@@ -127,3 +127,9 @@ def hapus_playlist(data, statuslogin):
     print("Playlist tidak ditemukan.", end="")
     input()
     return data
+
+def lihat_semua_data(data):
+    print("== Lihat Semua Data Pengguna ==")
+    tampilkan_semua_data(data)
+    input("Tekan Enter untuk kembali...")
+

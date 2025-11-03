@@ -2,20 +2,7 @@
     "developer": {
         "password": "123",
         "role": "admin",
-        "playlist": [
-            [
-                "APAPAP",
-                [
-                    [
-                        "KON",
-                        "TL",
-                        "pop",
-                        1950,
-                        4
-                    ]
-                ]
-            ]
-        ]
+        "playlist": []
     },
     "Andi": {
         "password": "123",

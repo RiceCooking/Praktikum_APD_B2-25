@@ -1,6 +1,6 @@
 import os
 from auth import register, login, keluar
-from playlist import lihat_playlist, tambah_playlist, ubah_playlist, hapus_playlist
+from playlist import lihat_playlist, tambah_playlist, ubah_playlist, hapus_playlist, lihat_semua_data
 from data import load_data, save_data
 
 def menu_admin(data, statuslogin):
@@ -28,9 +28,7 @@ def menu_admin(data, statuslogin):
             elif opsi == 5:
                 return None
             elif opsi == 6:
-                for akun, bio in data.items():
-                    print(f"{akun}: {bio}")
-                input()
+                lihat_semua_data(data)
             else:
                 print("Pilihlah 1/2/3/4/5/6", end="")
                 input()
