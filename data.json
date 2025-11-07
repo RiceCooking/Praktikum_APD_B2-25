@@ -2,36 +2,31 @@
     "developer": {
         "password": "123",
         "role": "admin",
-        "playlist": [
-            [
-                "TIDUR",
-                [
-                    [
-                        "Kn",
-                        "a",
-                        "pop",
-                        2012,
-                        3
-                    ]
-                ]
-            ],
-            [
-                "FAFAF",
-                [
-                    [
-                        "MON",
-                        "Moon",
-                        "jazz",
-                        2023,
-                        3
-                    ]
-                ]
-            ]
-        ]
+        "playlist": []
     },
     "Andi": {
         "password": "123",
         "role": "user",
-        "playlist": []
+        "playlist": [
+            [
+                "Beljar",
+                [
+                    [
+                        "Snow",
+                        "Artic",
+                        "pop",
+                        2023,
+                        5
+                    ],
+                    [
+                        "Sky",
+                        "Nmoon",
+                        "hiphop",
+                        2010,
+                        4
+                    ]
+                ]
+            ]
+        ]
     }
 }
